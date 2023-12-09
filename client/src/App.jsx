@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <h1>LifeLine Website</h1>
+      <h1>LifeLine WebSite</h1>
       <h1>Patient portal</h1>
     </>
   )
