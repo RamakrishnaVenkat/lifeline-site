@@ -7,6 +7,7 @@ function App() {
   return (
     <>
       <h1>LifeLine WebSite</h1>
+      <h1>LifeLine WebSite</h1>
     </>
   )
 }
