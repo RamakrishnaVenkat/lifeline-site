@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
 
-function MedicalInfo({formData,setFormData}) {
-  
+function MedicalInfo({medicalConditions, setMedicalConditions}) {
 
   const handleInputChange = (e, category, index) => {
     const { name, value } = e.target;
-    const updatedConditions = [...formData[category]];
+    const updatedConditions = [...medicalConditions[category]];
     updatedConditions[index][name] = value;
 
-    setFormData({
-      ...formData,
+    setMedicalConditions({
+      ...medicalConditions,
       [category]: updatedConditions,
     });
   };
 
   const handleAddEntry = (category) => {
-    setFormData({
-      ...formData,
-      [category]: [...formData[category], {}],
+    setMedicalConditions({
+      ...medicalConditions,
+      [category]: [...medicalConditions[category], {}],
     });
   };
 
@@ -31,7 +30,7 @@ function MedicalInfo({formData,setFormData}) {
           <p>
             If you have/had any medical conditions for a prolonged time and took up treatment, please mention below:
           </p>
-          {formData.prolongedMedicalConditions.map((condition, index) => (
+          {medicalConditions.prolongedMedicalConditions.map((condition, index) => (
             <div key={index}>
               <label className='form-label'>
                 Condition Name:
@@ -72,7 +71,7 @@ function MedicalInfo({formData,setFormData}) {
 
         <div>
           <p>If you have allergies, choose them and choose their severity:</p>
-          {formData.allergies.map((allergy, index) => (
+          {medicalConditions.allergies.map((allergy, index) => (
             <div key={index}>
               <label className='form-label'>
                 Allergy Name:
@@ -107,7 +106,7 @@ function MedicalInfo({formData,setFormData}) {
 
         <div>
           <p>If you have undergone surgeries in the past, enter the details below:</p>
-          {formData.pastSurgeries.map((surgery, index) => (
+          {medicalConditions.pastSurgeries.map((surgery, index) => (
             <div key={index}>
               <label className='form-label'>
                 Surgery Name:
