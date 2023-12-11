@@ -18,12 +18,13 @@ function Register() {
     dateOfBirth: '',
     contact: '',
     address: '',
+    
+  })
+  const [medicalConditions, setMedicalConditions] = useState({
     prolongedMedicalConditions: [],
     allergies: [],
     pastSurgeries: [],
-    relationship: '', 
-    medicalId: '' ,
-  })
+  });
   
 
   
@@ -34,7 +35,7 @@ function Register() {
     if (page === 0){
       return <PersonalInfo formData={formData} setFormData={setFormData}/>;
     }else if (page === 1){
-      return <MedicalInfo formData={formData} setFormData={setFormData}/>;
+      return <MedicalInfo medicalConditions={medicalConditions} setMedicalConditions={setMedicalConditions}/>;
     }else{
       return <FamilyInfo familyMembers={familyMembers} setFamilyMembers={setFamilyMembers} />;
     }
@@ -54,6 +55,7 @@ function Register() {
               alert("FORM SUBMITTED");
               console.log(formData);
               console.log(familyMembers);
+              console.log(medicalConditions);
             }else{
               setPage((currPage)=> currPage+1);
           }
