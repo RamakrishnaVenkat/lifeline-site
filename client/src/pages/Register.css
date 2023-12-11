@@ -16,7 +16,7 @@ body{
 }
 .form{
     position: relative;
-    max-width: 500px;
+    max-width: 550px;
     width:100%;
     padding: 25px;
     border-radius: 8px;
@@ -30,8 +30,8 @@ body{
     padding-bottom: 10px;
 }
 .form-input{
-    margin-top: 7px;
-    margin-bottom: 7px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     position: relative;
     height: 30px;
     width: 100%;
@@ -68,4 +68,23 @@ p{
     padding-bottom: 5px;
 }
 
+.Form-column{
+    display: flex;
+    column-gap: 30px;
+    
+    
+}
+select{
+    width: 100%;
+    margin-right: 200px;
+    height:30px;
+    border:none;
+    border-radius: 7px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+  
+  
+  
+  
 

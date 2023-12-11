@@ -17,6 +17,7 @@ function PersonalInfo({formData,setFormData}) {
     <div className='personal-info-container'>
       
       <form >
+        <div className='Form-column'>
         <label className='form-label'>
           Username:
           <input className='form-input'type="text" name="username" placeholder="Enter UserName" value={formData.username} onChange={handleInputChange} required />
@@ -28,7 +29,8 @@ function PersonalInfo({formData,setFormData}) {
           <input className='form-input'type="password" name="password" placeholder="Enter Password" value={formData.password} onChange={handleInputChange} required />
         </label>
         <br />
-
+        </div>
+        <div className='Form-column'>
         <label className='form-label'>
           Name:
           <input className='form-input'type="text" name="name" placeholder="Enter your Name" value={formData.name} onChange={handleInputChange} required />
@@ -40,7 +42,8 @@ function PersonalInfo({formData,setFormData}) {
           <input className='form-input'type="number" name="age" placeholder="Enter your Age" value={formData.age} onChange={handleInputChange} required />
         </label>
         <br />
-
+        </div>
+        <div className='Form-column'>
         <label className='form-label'>
           Height:
           <input className='form-input'type="text" name="height" placeholder='Enter your Height in cm' value={formData.height} onChange={handleInputChange} required />
@@ -52,10 +55,11 @@ function PersonalInfo({formData,setFormData}) {
           <input className='form-input'type="text" name="weight" placeholder='Enter your Weight in kg' value={formData.weight} onChange={handleInputChange} required />
         </label>
         <br />
-
+        </div>
+        <div className='Form-column'>
         <label className='form-label'>
           Gender:
-          <select className='form-input'name="gender" value={formData.gender} onChange={handleInputChange} required>
+          <select name="gender" value={formData.gender} onChange={handleInputChange} required>
             <option className='form-input' value="">Select Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -66,7 +70,7 @@ function PersonalInfo({formData,setFormData}) {
 
         <label className='form-label'>
           Blood Group:
-          <select className='form-input'name="bloodGroup" value={formData.bloodGroup} onChange={handleInputChange} required>
+          <select name="bloodGroup" value={formData.bloodGroup} onChange={handleInputChange} required>
             <option className='form-input' value="">Select Blood Group</option>
             <option value="A+">A+</option>
             <option value="A-">A-</option>
@@ -79,7 +83,8 @@ function PersonalInfo({formData,setFormData}) {
           </select>
         </label>
         <br />
-
+        </div>
+        <div className='Form-column'>
         <label className='form-label'>
           Date of Birth:
           <input className='form-input'
@@ -97,7 +102,8 @@ function PersonalInfo({formData,setFormData}) {
           <input className='form-input' type="text" name="contact" placeholder='Contact number' value={formData.contact} onChange={handleInputChange} required  />
         </label>
         <br />
-
+        </div>
+        
         <label className='form-label'>
           Address:
           <input className='form-input'
