@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 
-function MedicalInfo({medicalConditions, setMedicalConditions}) {
+function MedicalInfo() {
+    const [medicalConditions, setMedicalConditions] = useState({
+        prolongedMedicalConditions: [],
+        allergies: [],
+        pastSurgeries: [],
+      });
 
   const handleInputChange = (e, category, index) => {
     const { name, value } = e.target;

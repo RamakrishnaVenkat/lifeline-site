@@ -1,7 +1,20 @@
 import React, { useState } from 'react';
 
-function PersonalInfo({formData,setFormData}) {
-  
+function PersonalInfo() {
+    const [formData,setFormData]= useState({
+        username: '',
+        password: '',
+        name: '',
+        age: '',
+        height: '',
+        weight: '',
+        gender: '',
+        bloodGroup: '',
+        dateOfBirth: '',
+        contact: '',
+        address: '',
+        
+      })
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

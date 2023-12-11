@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-function FamilyInfo({familyMembers, setFamilyMembers} ) {
-  
+function FamilyInfo() {
+    const [familyMembers,setFamilyMembers]= useState([]);
 
   const handleAddFamilyMember = () => {
     setFamilyMembers([...familyMembers, { relationship: '', medicalId: '' }]);
