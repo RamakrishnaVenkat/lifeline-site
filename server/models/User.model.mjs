@@ -26,6 +26,14 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  height: {
+    type: Number,
+    required: true,
+  },
+  weight: {
+    type: Number,
+    required: true,
+  },
   age: {
     type: Number,
     required: true,
@@ -41,10 +49,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     unique: true,
   },
-  family_members: {
-    type: Map,
-    of: String,
-  },
+  family_members:{
+    type: Object,
+    default: {}
+  }
 });
 
 const User = mongoose.model("User", userSchema);

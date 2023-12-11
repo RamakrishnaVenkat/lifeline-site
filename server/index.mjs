@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from "dotenv"; //to access env variables
 import authRouter from './routes/auth.routes.mjs'
+import userRouter from './routes/user.routes.mjs'
 //CONFIGURATIONS
 dotenv.config();
 const app = express();
@@ -11,6 +12,7 @@ app.use(express.json()); //without this we cannot send or receive json using api
 
 //ROUTES
 app.use("/api/auth", authRouter);
+app.use("/api/user", userRouter);
 
 //A COMMON MIDDLEWARE TO HANDLE ERROR
 app.use((err, req, res, next)=>{

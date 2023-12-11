@@ -3,6 +3,7 @@ import PersonalInfo from './PersonalInfo';
 import MedicalInfo from './MedicalInfo';
 import FamilyInfo from './FamilyInfo';
 import './Register.css'
+
 function Register() {
   const [page,setPage]= useState(0);
   const [familyMembers,setFamilyMembers]= useState([]);

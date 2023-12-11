@@ -27,13 +27,13 @@ const generateUniqueMedicalID = async () => {
 
 export const signup = async (req, res, next) => {
   try {
-    const { name, username, dob, password, address, contact, age, gender, blood_group } = req.body;
+    const { name, username, dob, password, address, contact, age, gender, blood_group, family_members } = req.body;
     const hashedPass = bcryptjs.hashSync(password, 10); // Password, salt no.
 
     // Generate unique medical ID
     const medicalID = await generateUniqueMedicalID();
 
-    const newUser = new User({ name, username, dob, password: hashedPass, address, contact, age, gender, blood_group, medical_id: medicalID });
+    const newUser = new User({ name, username, dob, password: hashedPass, address, contact, age, gender, blood_group, medical_id: medicalID, family_members});
     await newUser.save();
     res.status(201).json("User created successfully");
     // res.json(newUser);
@@ -50,7 +50,6 @@ export const signin = async (req, res, next) => {
     const { username, password } = req.body;
     const validUser = await User.findOne({ username });
     if (!validUser) return next(errorHandler(404, "Invalid userid/password")); //if the user is not valid return the error and stop execution
-    console.log(validUser);
     //if the user valid decrypt and check the password
     const validPassword = bcryptjs.compareSync(password, validUser.password);
     if (!validPassword) return next(errorHandler(401, "Invalid userid/password"));

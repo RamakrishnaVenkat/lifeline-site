@@ -3,8 +3,9 @@ import { errorHandler } from "./error.mjs";
 
 export const verifyToken = (req, res, next)=>{
     try{
+        console.log(req.cookies)
         const token = req.cookies.access_token;
-
+        console.log(token);
         //if there is no token found, return unauthorized error
         if(!token) return next(errorHandler(401, 'Unauthorized'));
 
