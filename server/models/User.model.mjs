@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     enum: ["Male", "Female", "Other"],
   },
-  blood_group: {
+  bloodGroup: {
     type: String,
   },
   medical_id: {
