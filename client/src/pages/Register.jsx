@@ -33,6 +33,7 @@ function Register() {
   };
 
   return (
+    <div className='page'>
     <div className='form'>
       
         <div className='header'>
@@ -150,7 +151,7 @@ function Register() {
         </div>
 
       </div>
-      
+      </div>   
     
   )
 }

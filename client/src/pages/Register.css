@@ -5,19 +5,21 @@
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
 }
-body{
-    display: flex;
-    min-height: 100vh;
-    justify-content: center;
-    align-items: center;
-    padding:  20px;
-    background: linear-gradient(135deg,#71b7e6,#9b59b6);
-    background: linear-gradient(rgba(31, 59, 78, 0.9),rgba(160, 36, 208, 0.7)),url('images/registerbg.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+.page{
     
-}
+        display: flex;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        padding:  20px;
+        background: linear-gradient(135deg,#71b7e6,#9b59b6);
+        background: linear-gradient(rgba(31, 59, 78, 0.9),rgba(160, 36, 208, 0.7)),url('images/registerbg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        
+    }
+
 .form{
     
     position: relative;
