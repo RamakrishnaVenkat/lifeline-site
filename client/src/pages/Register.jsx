@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Register() {
   const navigate = useNavigate();
@@ -42,13 +42,12 @@ function Register() {
           </h2>
           <p className="mt-2 text-base text-gray-600">
             Already have an account?{" "}
-            <a
-              href="#"
-              title=""
+            <Link
+            to='/login'
               className="font-medium text-black transition-all duration-200 hover:underline"
             >
               Sign In
-            </a>
+            </Link>
           </p>
         </div>
         <div className="p-4 flex justify-center">
