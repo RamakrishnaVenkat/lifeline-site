@@ -34,17 +34,17 @@ function Register() {
   };
 
   return (
-    <section className="flex flex-col h-screen justify-center">
-      <div className="grid grid-cols-1 sm:grid-cols-2">
+    <section className="flex flex-col h-screen justify-center dark:bg-gray-950">
+      <div className="grid sm:grid-cols-2">
         <div className="text-center sm:col-span-2">
-          <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">
+          <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl dark:text-white">
             Sign up
           </h2>
-          <p className="mt-2 text-base text-gray-600">
+          <p className="mt-2 text-base text-gray-600 dark:text-white">
             Already have an account?{" "}
             <Link
             to='/login'
-              className="font-medium text-black transition-all duration-200 hover:underline"
+              className="font-medium text-black transition-all duration-200 hover:underline dark:text-white"
             >
               Sign In
             </Link>
@@ -56,7 +56,7 @@ function Register() {
               <div>
                 <label
                   htmlFor="name"
-                  className="text-base font-medium text-gray-900"
+                  className="text-base font-medium text-gray-900 dark:text-white"
                 >
                   {" "}
                   Full Name{" "}
@@ -77,7 +77,7 @@ function Register() {
               <div>
                 <label
                   htmlFor="text"
-                  className="text-base font-medium text-gray-900"
+                  className="text-base font-medium text-gray-900 dark:text-white"
                 >
                   {" "}
                   Age{" "}
@@ -98,7 +98,7 @@ function Register() {
               <div>
                 <label
                   htmlFor="text"
-                  className="text-base font-medium text-gray-900"
+                  className="text-base font-medium text-gray-900 dark:text-white"
                 >
                   {" "}
                   Height{" "}
@@ -119,7 +119,7 @@ function Register() {
               <div>
                 <label
                   htmlFor="text"
-                  className="text-base font-medium text-gray-900"
+                  className="text-base font-medium text-gray-900 dark:text-white"
                 >
                   {" "}
                   Weight{" "}
@@ -140,7 +140,7 @@ function Register() {
               <div>
                 <label
                   htmlFor="text"
-                  className="text-base font-medium text-gray-900"
+                  className="text-base font-medium text-gray-900 dark:text-white"
                 >
                   {" "}
                   Gender{" "}
@@ -148,7 +148,7 @@ function Register() {
                 <div className="mt-2">
                   <select
                     name="gender"
-                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:text-gray-400"
                     type=""
                     id="gender"
                     value={formData.gender}
@@ -171,14 +171,14 @@ function Register() {
               <div>
                 <label
                   htmlFor="name"
-                  className="text-base font-medium text-gray-900"
+                  className="text-base font-medium text-gray-900 dark:text-white"
                 >
                   {" "}
                   Blood Group{" "}
                 </label>
                 <div className="mt-2">
                   <select
-                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:text-gray-400"
                     name="bloodGroup"
                     type=""
                     placeholder="bloodGroup"
@@ -202,7 +202,7 @@ function Register() {
               <div>
                 <label
                   htmlFor="text"
-                  className="text-base font-medium text-gray-900"
+                  className="text-base font-medium text-gray-900 dark:text-white"
                 >
                   {" "}
                   Date of birth{" "}
@@ -210,7 +210,7 @@ function Register() {
                 <div className="mt-2">
                   <input
                     name="dob"
-                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:text-gray-400"
                     type="date"
                     placeholder=""
                     id="dob"
@@ -223,7 +223,7 @@ function Register() {
               <div>
                 <label
                   htmlFor="text"
-                  className="text-base font-medium text-gray-900"
+                  className="text-base font-medium text-gray-900 dark:text-white"
                 >
                   {" "}
                   Contact number{" "}
@@ -244,7 +244,7 @@ function Register() {
               <div>
                 <label
                   htmlFor="text"
-                  className="text-base font-medium text-gray-900"
+                  className="text-base font-medium text-gray-900 dark:text-white"
                 >
                   {" "}
                   Username{" "}
@@ -265,7 +265,7 @@ function Register() {
               <div>
                 <label
                   htmlFor="text"
-                  className="text-base font-medium text-gray-900"
+                  className="text-base font-medium text-gray-900 dark:text-white"
                 >
                   {" "}
                   Password{" "}
@@ -290,7 +290,7 @@ function Register() {
           <div className="w-1/2">
             <label
               htmlFor="text"
-              className="text-base font-medium text-gray-900"
+              className="text-base font-medium text-gray-900 dark:text-white"
             >
               {" "}
               Address{" "}
@@ -308,10 +308,10 @@ function Register() {
               />
             </div>
           </div>
-          <div className="my-5">
+          <div className="my-5 shadow-lg">
             <button
               type="button"
-              className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80 "
+              className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80 dark:bg-slate-800 dark:hover:bg-slate-900"
             >
               Register Account
               <ArrowRight className="ml-2" onClick={handleSubmit} />

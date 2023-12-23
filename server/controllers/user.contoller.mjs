@@ -2,60 +2,38 @@ import User from "../models/User.model.mjs";
 import MedicalDetails from "../models/MedicalDetails.model.mjs";
 import { errorHandler } from "../utils/error.mjs";
 
-const updateFamilyMembers = async(userId, relationship, medicalId)=>{
-    try {
-      // Check if the user already has family members
-      const existingUser = await User.findById(userId);
-      console.log(existingUser)
-      // Define the update object
-      const updateObject = {}
-      if (!existingUser.family_members) {
-        // User doesn't have family_members yet, create a new object
-        updateObject.family_members = {};
-      }
-      else {
-        updateObject.family_members = existingUser.family_members; // Use existing object
-      }
-  
-      // Set the specific relationship-medicalId pair
-      updateObject.family_members[relationship] = medicalId;
-      console.log(relationship, medicalId)
-      // Update the user document
-      const updatedUser = await User.findByIdAndUpdate(
-        userId,
-        { $set: updateObject },
-        { new: true }
-      );
-  
-      return updatedUser.family_members;
-    } catch (error) {
-      throw (error);
-    }
-  }
-  
+
 export const addFamilyMembers = async (req, res, next) => {
-    try {
-      const userId  = req.params.id;
-      const { relationship, medicalId } = req.body;
-      console.log(userId)
-      // Check if the medical ID exists in the database
-      const userWithMedicalId = await User.findOne({ medical_id: medicalId });
-      if (!userWithMedicalId) {
-        return next(errorHandler(404, `Medical ID "${medicalId}" does not exist`));
-      }
-  
-      // Update the user document
-      const updatedUser = await updateFamilyMembers(userId, relationship, medicalId);
-  
-      if (!updatedUser) {
-        return next(errorHandler(`User with ID "${userId}" not found`));
-      }
-  
-      res.json(updatedUser);
-    } catch (error) {
-      next(error);
+  try {
+    const userId = req.params.id;
+    const { relationship, medicalId } = req.body;
+    
+    // Check if the user exists
+    const user = await User.findById(userId);
+    if (!user) {
+      return next(errorHandler(404, `User with ID "${userId}" does not exist`));
     }
-  };
+
+    // Check if the medical ID exists in the database
+    const userWithMedicalId = await User.findOne({ medical_id: medicalId });
+    if (!userWithMedicalId) {
+      return next(errorHandler(404, `Medical ID "${medicalId}" does not exist`));
+    }
+
+    // Add family member to the user's family_members array
+    user.family_members.push({
+      relationship: relationship,
+      medical_id: medicalId,
+    });
+
+    // Save the updated user document
+    await user.save();
+
+    res.json(user); // Return the updated user object
+  } catch (error) {
+    next(error);
+  }
+};
 
 
 
@@ -69,9 +47,19 @@ export const addMedicalDetails = async(req, res, next)=>{
       return next(errorHandler(404, 'Missing medical details'));
     }
 
+    // Fetch the user using the provided userId
+    const user = await User.findById(userId);
+    if (!user) {
+      return next(errorHandler(404, 'User not found'));
+    }
+
+    // Extract the medical ID from the user object
+    const medicalId = user.medical_id;
+   
     // Create a new medical details document
     const newMedicalDetails = new MedicalDetails({
       user_id: userId,
+      medical_id: medicalId,
       medical_conditions: medicalDetails.medical_conditions,
       allergies: medicalDetails.allergies,
       past_surgeries: medicalDetails.past_surgeries,
