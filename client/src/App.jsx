@@ -5,24 +5,27 @@ import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import PrivateRoutes from "./components/PrivateRoutes";
+import UnauthorizedRoutes from "./components/UnauthorizedRoutes";
 import Home from "./pages/Home";
 import ThemeButton from "./components/ThemeButton";
 function App() {
   return (
     <>
       <Router>
-        <Navbar/>
+        <Navbar />
+        {/* UNAUTHORIZED ROUTES */}
         <Routes>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-
+          <Route element={<UnauthorizedRoutes />}>
+            <Route path="/register" element={<Register />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+          </Route>
           {/* AUTHORIZED ROUTES */}
-          <Route element={<PrivateRoutes/>}>
+          <Route element={<PrivateRoutes />}>
             {/* <Navbar/> */}
-            <Route path="/" element={<Home/>}/>
+            <Route path="/" element={<Home />} />
           </Route>
         </Routes>
-        <ThemeButton/>
+        <ThemeButton />
       </Router>
     </>
   );
