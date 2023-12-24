@@ -30,7 +30,6 @@ function Register() {
     e.preventDefault();
     console.log("Form Data:", formData);
     navigate('/login')
-
   };
 
   return (

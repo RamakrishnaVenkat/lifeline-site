@@ -25,7 +25,7 @@ const SignInPage = () => {
   //form submit function
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    dispatch(signInFailure(""))
     try {
       dispatch(signInStart());
       const res = await fetch("/api/auth/signin", {
@@ -53,11 +53,11 @@ const SignInPage = () => {
   return (
     <>
       <div className="flex flex-col md:flex-row">
-        <main className="flex-[2_2_0%] h-screen bg-black text-white">hello</main>
+        <main className="flex-1 md:flex-[2_2_0%] md:h-screen bg-black text-white">hello</main>
 
         {/* sign in form */}
 
-        <div className="flex-1 flex flex-col justify-center items-center dark:bg-slate-950">
+        <div className="md:flex-1 flex flex-col justify-center items-center dark:bg-slate-950">
           <div className="bg-white h-1/2 w-1/2 dark:bg-slate-950">
             <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl dark:text-white">
               Sign in
