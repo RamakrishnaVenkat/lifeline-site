@@ -8,6 +8,7 @@ import PrivateRoutes from "./components/PrivateRoutes";
 import UnauthorizedRoutes from "./components/UnauthorizedRoutes";
 import Home from "./pages/Home";
 import ThemeButton from "./components/ThemeButton";
+import FamilyDetails from "./pages/FamilyDetails";
 function App() {
   return (
     <>
@@ -19,10 +20,11 @@ function App() {
             <Route path="/register" element={<Register />}></Route>
             <Route path="/login" element={<Login />}></Route>
           </Route>
+
           {/* AUTHORIZED ROUTES */}
           <Route element={<PrivateRoutes />}>
-            {/* <Navbar/> */}
             <Route path="/" element={<Home />} />
+            <Route path="/family-details" element={<FamilyDetails />} />
           </Route>
         </Routes>
         <ThemeButton />

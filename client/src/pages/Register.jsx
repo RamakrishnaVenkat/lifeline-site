@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
 function Register() {
+  const [loading, setLoading] = useState(false)
+  const [error , setError ] = useState("")
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
@@ -17,7 +19,6 @@ function Register() {
     contact: "",
     address: "",
   });
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -26,15 +27,38 @@ function Register() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    navigate('/login')
+    console.log(formData)
+    try {
+      setLoading(true); //set loading true before execution of request
+      const res = await fetch("http://localhost:5000/api/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        setError(data.message);
+        setLoading(false);
+        return;
+      }
+      setLoading(false); 
+      setError(null) 
+      navigate('/login')
+      // console.log(data);
+    } catch (error) {
+      // console.log(error);
+      setError(error.message);
+      setLoading(false);
+    }
   };
 
   return (
     <section className="flex flex-col h-screen justify-center dark:bg-gray-950">
-      <div className="grid sm:grid-cols-2">
+      <div className="sm:grid sm:grid-cols-2">
         <div className="text-center sm:col-span-2">
           <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl dark:text-white">
             Sign up
@@ -155,9 +179,9 @@ function Register() {
                     required
                   >
                     <option value="">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
               </div>
@@ -318,6 +342,7 @@ function Register() {
           </div>
         </div>
       </div>
+      {error && <p className="text-red-700 text-sm text-center">{error}</p>}
     </section>
   );
 }

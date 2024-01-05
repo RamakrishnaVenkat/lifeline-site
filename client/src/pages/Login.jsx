@@ -53,10 +53,9 @@ const SignInPage = () => {
   return (
     <>
       <div className="flex flex-col md:flex-row">
-        <main className="flex-1 md:flex-[2_2_0%] md:h-screen bg-black text-white bg-[url('/images/loginbgg.jpg')] bg-contain bg-cover bg-opacity-50"></main>
+        <section className="flex-1 md:flex-[2_2_0%] md:h-screen bg-[url('/images/loginbgg.jpg')] bg-cover brightness-125"></section>
 
         {/* sign in form */}
-
         <div className="md:flex-1 flex flex-col justify-center items-center dark:bg-slate-950">
           <div className="bg-white h-1/2 w-1/2 dark:bg-slate-950">
             <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl dark:text-white">

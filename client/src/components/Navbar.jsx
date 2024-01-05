@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 function Navbar() {
   const {currentUser} = useSelector(state=>state.user)
    return (
-    currentUser ?<nav className="shadow-md top-0 dark:bg-slate-950">
+    currentUser ?<nav className="fixed w-screen shadow-md top-0 dark:bg-slate-950 ">
     <div className="flex justify-between items-center  mx-auto p-3 lg:px-10">
       <Link  to="/">
       <h1 className="font-bold text-sm sm:text-xl cursor-pointer">

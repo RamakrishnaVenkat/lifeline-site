@@ -3,11 +3,10 @@ import { errorHandler } from "./error.mjs";
 
 export const verifyToken = (req, res, next)=>{
     try{
-        console.log(req.cookies)
-        const token = req.cookies.access_token;
-        console.log(token);
+
+        const token = req.cookies?.access_token;
         //if there is no token found, return unauthorized error
-        if(!token) return next(errorHandler(401, 'Unauthorized'));
+        if(!token) return next(errorHandler(401, 'The token is not present, you are unauthorized!'));
 
         jwt.verify(token, process.env.JWT_SECRET, (err, user)=>{ //it return err, and user info stored
             if(err) return next(errorHandler(403, 'Token not valid'));
