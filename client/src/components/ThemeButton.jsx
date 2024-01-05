@@ -28,7 +28,7 @@ export default function ThemeButton() {
     }, [theme])
   return (
     <>
-        <motion.button className='w-[60px] h-[60px] absolute rounded-full bg-slate-950 bottom-8 right-12 z-50 shadow-2xl flex items-center justify-center cursor-pointer dark:bg-white'
+        <motion.button className='fixed w-[60px] h-[60px] rounded-full bg-slate-950 bottom-8 right-12 shadow-2xl flex items-center justify-center cursor-pointer dark:bg-white'
         type='button'
         onClick={onThemeChange}
         variants={settingVariant}

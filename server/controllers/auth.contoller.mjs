@@ -27,13 +27,13 @@ const generateUniqueMedicalID = async () => {
 
 export const signup = async (req, res, next) => {
   try {
-    const { name, username, dob, password, address, contact, height, weight, age, gender, blood_group, family_members } = req.body;
+    const { name, username, dob, password, address, contact, height, weight, age, gender, blood_group } = req.body;
     const hashedPass = bcryptjs.hashSync(password, 10); // Password, salt no.
 
     // Generate unique medical ID
     const medicalID = await generateUniqueMedicalID();
 
-    const newUser = new User({ name, username, dob, password: hashedPass, address, contact, age, height, weight, gender, blood_group, medical_id: medicalID, family_members});
+    const newUser = new User({ name, username, dob, password: hashedPass, address, contact, age, height, weight, gender, blood_group, medical_id: medicalID});
     await newUser.save();
     res.status(201).json("User created successfully");
     // res.json(newUser);
@@ -42,7 +42,6 @@ export const signup = async (req, res, next) => {
   }
 };
 
-  
 
 //2. SIGN IN CONTROLLER
 export const signin = async (req, res, next) => {
@@ -57,7 +56,8 @@ export const signin = async (req, res, next) => {
     //if the user entered correct credentials, then authorize them by giving a token
     const token = jwt.sign(
       {
-        id: validUser._id, //it is always better to have the mongo id in the token, than any other info
+        _id: validUser._id, //it is always better to have the mongo id in the token, than any other info
+        username: validUser.username
       },
       process.env.JWT_SECRET
     ); //sign the token using a secret key of your own
@@ -66,7 +66,7 @@ export const signin = async (req, res, next) => {
     const { password: pass, ...rest_data } = validUser._doc; //SO THAT YOU DON'T NEED A SEPARATE API TO GET THE USER
 
     //once the token is created, save it in a cookie
-    res
+    return res
       .cookie("access_token", token, { httpOnly: true })
       .status(200)
       .json(rest_data); //NOTE: YOU CAN ADD 'EXPIRES' IF YOU WANT THE TOKEN TO EXPIRE AFTER SOME TIME

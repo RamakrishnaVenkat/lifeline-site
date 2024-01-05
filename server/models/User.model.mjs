@@ -49,16 +49,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     unique: true,
   },
-  family_members:[
-    {
-      relationship:{
-        type: String,
-      },
-      medical_id:{
-        type: String,
-      }
-    }
-  ]
 });
 
 const User = mongoose.model("User", userSchema);

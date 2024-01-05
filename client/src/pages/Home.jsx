@@ -26,8 +26,6 @@ function Home() {
     
   })
   return (
-    
-    
 
     <div className='pl-10 pt-5'>
       <div className="px-4 sm:px-0">
@@ -144,6 +142,8 @@ function Home() {
     </div>
       
     
+
+   
   )
 }
 

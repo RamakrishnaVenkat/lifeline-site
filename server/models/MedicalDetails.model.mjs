@@ -7,7 +7,8 @@ const medicalDetailsSchema = new mongoose.Schema({
   },
   medical_id: {
     type: String,
-    required: true,
+    unique: true,
+    required: true
   },
   medical_conditions: {
     type: [{
