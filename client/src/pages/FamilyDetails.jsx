@@ -19,6 +19,7 @@ function FamilyMembersComponent() {
   const [familyMembers, setFamilyMembers] = useState([]);
 
   useEffect(() => {
+
     const fetchFamily = async () => {
       const res = await fetch("/api/family/get-family-details", {
         method: "GET",
@@ -30,6 +31,7 @@ function FamilyMembersComponent() {
     };
     fetchFamily();
   }, []);
+
 
   return (
     <div className="grid grid-cols-3 h-screen custom-padding">
