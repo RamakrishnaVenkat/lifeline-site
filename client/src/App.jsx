@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import PrivateRoutes from "./components/PrivateRoutes";
 import Home from "./pages/Home";
 import ThemeButton from "./components/ThemeButton";
+import MedicalInfo from "./pages/MedicalInfo";
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path ="/MedicalInfo" element={<MedicalInfo />}></Route>
 
           {/* AUTHORIZED ROUTES */}
           <Route element={<PrivateRoutes/>}>

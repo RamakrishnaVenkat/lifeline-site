@@ -55,7 +55,7 @@ function PersonalInfo() {
           <input className='form-input'type="number" name="age" placeholder="Enter your Age" value={formData.age} onChange={handleInputChange} required />
         </label>
         <br />
-        </div>
+        </div>z
         <div className='Form-column'>
         <label className='form-label'>
           Height:
