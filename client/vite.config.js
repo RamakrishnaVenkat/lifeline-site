@@ -7,7 +7,7 @@ export default defineConfig({
     proxy:{
       //whenever the api route is '/api' add the target at the begining
       '/api':{
-        target: 'http://localhost:3000',//this is where the server is running
+        target: 'http://localhost:5000',//this is where the server is running
         secure: false,
       }
     }

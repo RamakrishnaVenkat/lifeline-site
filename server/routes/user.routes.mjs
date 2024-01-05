@@ -7,7 +7,7 @@ import { addFamilyMembers, addMedicalDetails } from "../controllers/user.contoll
 
 const router = express.Router();
 
-router.post("/add-family/:id", verifyToken, addFamilyMembers);
+router.post("/add-family/:id", addFamilyMembers);
 router.post("/add-medical-details/:id", addMedicalDetails);
 // router.get("/signout", signout);
 

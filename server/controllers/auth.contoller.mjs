@@ -27,13 +27,13 @@ const generateUniqueMedicalID = async () => {
 
 export const signup = async (req, res, next) => {
   try {
-    const { name, username, dob, password, address, contact, age, gender, blood_group, family_members } = req.body;
+    const { name, username, dob, password, address, contact, height, weight, age, gender, blood_group, family_members } = req.body;
     const hashedPass = bcryptjs.hashSync(password, 10); // Password, salt no.
 
     // Generate unique medical ID
     const medicalID = await generateUniqueMedicalID();
 
-    const newUser = new User({ name, username, dob, password: hashedPass, address, contact, age, gender, blood_group, medical_id: medicalID, family_members});
+    const newUser = new User({ name, username, dob, password: hashedPass, address, contact, age, height, weight, gender, blood_group, medical_id: medicalID, family_members});
     await newUser.save();
     res.status(201).json("User created successfully");
     // res.json(newUser);
