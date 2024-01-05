@@ -5,14 +5,15 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
-<<<<<<< HEAD
+// <<<<<<< HEAD
 
-=======
+// =======
 import PrivateRoutes from "./components/PrivateRoutes";
 import UnauthorizedRoutes from "./components/UnauthorizedRoutes";
 import Home from "./pages/Home";
 import ThemeButton from "./components/ThemeButton";
->>>>>>> bc07ea701e0200b0b699bf42ed46346fbf7e97db
+import Hospital_history from "./pages/Hospital_history";
+// >>>>>>> bc07ea701e0200b0b699bf42ed46346fbf7e97db
 function App() {
   return (
     <>
@@ -28,6 +29,7 @@ function App() {
           <Route element={<PrivateRoutes />}>
             {/* <Navbar/> */}
             <Route path="/" element={<Home />} />
+            <Route path="/hospital-history" element={<Hospital_history />} />
           </Route>
         </Routes>
         <ThemeButton />
