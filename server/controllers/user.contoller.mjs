@@ -10,10 +10,11 @@ export const addMedicalDetails = async(req, res, next)=>{
 
     if(!userId) next(errorHandler(400, "User id not found, You are unauthorized!"))
     
-    const {medicalDetails} = req.body;
+    const {medical_conditions, allergies, past_surgeries} = req.body;
+
     // Validate the provided medical details
-    if (!medicalDetails) {
-      return next(errorHandler(404, 'Missing medical details'));
+    if (medical_conditions.length===0 && allergies.length===0 && past_surgeries.length===0) {
+      return next(errorHandler(404, 'Enter some medical record!'));
     }
 
     // Fetch the user using the provided userId
@@ -29,9 +30,9 @@ export const addMedicalDetails = async(req, res, next)=>{
     const newMedicalDetails = new MedicalDetails({
       user_id: userId,
       medical_id: medicalId,
-      medical_conditions: medicalDetails.medical_conditions,
-      allergies: medicalDetails.allergies,
-      past_surgeries: medicalDetails.past_surgeries,
+      medical_conditions,
+      allergies,
+      past_surgeries,
     });
 
     // Save the document to the database
@@ -46,10 +47,10 @@ export const addMedicalDetails = async(req, res, next)=>{
 //TO UPDATE MEDICAL DETAILS 
 export const updateMedicalDetails = async(req, res, next)=>{
   //GET THE DETAILS TO UPDATE
-  const {medicalDetails} = req.body;
+  const {medical_conditions, allergies, past_surgeries} = req.body;
     // Validate the provided medical details
-    if (!medicalDetails) {
-      return next(errorHandler(404, 'Missing medical details to update!'));
+    if (medical_conditions.length===0 && allergies.length===0 && past_surgeries.length===0) {
+      return next(errorHandler(404, 'Enter some medical record!'));
     }
 
   //GET THE USER ID
@@ -61,9 +62,9 @@ export const updateMedicalDetails = async(req, res, next)=>{
    { user_id: userId},
    {
     $set:{
-      medical_conditions: medicalDetails.medical_conditions,
-      allergies: medicalDetails.allergies,
-      past_surgeries: medicalDetails.past_surgeries,
+      medical_conditions,
+      allergies,
+      past_surgeries
     }
    }
   

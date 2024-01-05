@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import authRouter from './routes/auth.routes.mjs'
 import userRouter from './routes/user.routes.mjs'
 import familyRouter from './routes/family.routes.mjs'
+import reportRouter from './routes/medicalReport.routes.mjs'
 import cors from "cors"
 //CONFIGURATIONS
 dotenv.config();
@@ -20,6 +21,7 @@ app.use(cookieParser())
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/family", familyRouter);
+app.use("/api/report", reportRouter);
 
 //A COMMON MIDDLEWARE TO HANDLE ERROR
 app.use((err, req, res, next)=>{

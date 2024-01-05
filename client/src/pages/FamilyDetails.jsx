@@ -6,12 +6,6 @@ function FamilyMembersComponent() {
   const [familyMembers, setFamilyMembers] = useState([]);
 
   useEffect(() => {
-    // Fetch family members from the backend
-    // Replace this fetch call with your API fetch logic to get family members
-    // For example:
-    // fetchFamilyMembers();
-
-    // For demonstration purposes, using sample data
     const sampleFamilyMembers = [
       {
         relationship: 'mother',
@@ -23,12 +17,10 @@ function FamilyMembersComponent() {
         medical_id: 'MED9699',
         _id: '6596956f6a74fe95eb0569d2'
       }
-      // ... (other family members)
     ];
 
     setFamilyMembers(sampleFamilyMembers);
-  }, []); // Triggered once on component mount
-
+  }, []); 
   return (
     <div className='grid grid-cols-3 h-screen custom-padding'>
       <main className='col-span-2 border-r-2 border-slate-400 dark:bg-slate-900 dark:text-white'>
