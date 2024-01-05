@@ -1,38 +1,86 @@
-import React, { useState } from 'react'
-import "./Login.css"
-// import  bg from "./loginbg.png"
-const Login = () => {
-
-  const[popupStyle,showPopup]=useState("hide")
-  const popup=()=>{
-    showPopup("login-popup")
-    setTimeout(()=> showPopup("hide"),3000)
-  }
-
-  
+import {Link} from 'react-router-dom'
+import { ArrowRight } from "lucide-react";
+const SignInPage = () => {
   return (
-    <div id='bg' style={{backgroundImage:`url()`}}>
-      <div className='cover' >
-    <h1>Login</h1>
+    <>
+      <div className="flex">
+        <main className="flex-[2_2_0%] h-screen bg-black">hello</main>
 
-            <input type="text" placeholder='userName' name="userName" />
-          <input type="password" placeholder='password'/>
-          <div className='login-btn' onClick={popup}>Login</div>
-          <p className='text'>OR LOGIN USING </p>
-          <div className='alt-login'>
-            <div className='facebook'></div>
-            <div className='google'>
-            </div>
+        {/* sign in form */}
+
+        <div className="flex-1 flex flex-col justify-center items-center">
+          <div className="bg-white h-1/2 w-1/2">
+            <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">
+              Sign in
+            </h2>
+            <p className="mt-2 text-sm text-gray-600">
+              Don&apos;t have an account?{" "}
+              <Link
+              className='text-black leading-tight font-bold hover:underline'
+               to="/register"
+              >
+                Register
+              </Link>
+            </p>
+            <form className="mt-8">
+              <div className="space-y-5">
+                <div>
+                  <label
+                    htmlFor=""
+                    className="text-base font-medium text-gray-900"
+                  >
+                    {" "}
+                    Email address{" "}
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      type="email"
+                      placeholder="Email"
+                    ></input>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center justify-between">
+                    <label
+                      htmlFor=""
+                      className="text-base font-medium text-gray-900"
+                    >
+                      {" "}
+                      Password{" "}
+                    </label>
+                    <a
+                      href="#"
+                      title=""
+                      className="text-sm font-semibold text-black hover:underline"
+                    >
+                      {" "}
+                      Forgot password?{" "}
+                    </a>
+                  </div>
+                  <div className="mt-2">
+                    <input
+                      className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      type="password"
+                      placeholder="Password"
+                    ></input>
+                  </div>
+                </div>
+                <div>
+                  <button
+                    type="button"
+                    className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
+                  >
+                    Login <ArrowRight className="ml-2" size={16} />
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
-        <div className={popupStyle}>
-          {/* <h3>login sucessful</h3> */}
-          
         </div>
-  
-</div></div>
-   
-    
-  )
-}
+      </div>
+    </>
+  );
+};
 
-export default Login
+export default SignInPage;
