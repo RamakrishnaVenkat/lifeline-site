@@ -6,20 +6,34 @@ function FamilyMembersComponent() {
   const [familyMembers, setFamilyMembers] = useState([]);
 
   useEffect(() => {
-    const sampleFamilyMembers = [
-      {
-        relationship: 'mother',
-        medical_id: 'MED2377',
-        _id: '658563d3f466b3d9ff72beb1'
-      },
-      {
-        relationship: 'father',
-        medical_id: 'MED9699',
-        _id: '6596956f6a74fe95eb0569d2'
-      }
-    ];
+    const fetchFamilyDet = async()=>{
+      console.log("Hi")
+      const res = await fetch('http://localhost:5000/api/family/get-family-details',{
+        method:'GET',
+        headers:{
+          'Content-Type': 'application/json'
+        },
+      });
+      const data = await res.json();
+      console.log(data)
 
-    setFamilyMembers(sampleFamilyMembers);
+  }
+
+  fetchFamilyDet();
+    // const sampleFamilyMembers = [
+    //   {
+    //     relationship: 'mother',
+    //     medical_id: 'MED2377',
+    //     _id: '658563d3f466b3d9ff72beb1'
+    //   },
+    //   {
+    //     relationship: 'father',
+    //     medical_id: 'MED9699',
+    //     _id: '6596956f6a74fe95eb0569d2'
+    //   }
+    // ];
+
+    // setFamilyMembers(sampleFamilyMembers);
   }, []); 
   return (
     <div className='grid grid-cols-3 h-screen custom-padding'>
