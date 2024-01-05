@@ -27,49 +27,50 @@ function Home() {
   })
   return (
 
-    <div className='pl-10 pt-5'>
-      <div className="px-4 sm:px-0">
-        <h2 className="text-3xl font-semibold leading-7 text-gray-900">Welcome,Elaine Frost</h2>
+    <div className='custom-padding mt-10 min-h-screen px-10 pl-10 dark:bg-slate-900 '>
+      <div className="px-4 sm:px-0 flex justify-between">
+        <h2 className="text-3xl font-semibold leading-7 text-gray-900 dark:text-white">Welcome, Elaine Frost</h2>
+        <h2 className="text-3xl font-semibold leading-7 text-gray-900 dark:text-white">Medical ID: <span className='text-slate-600 dark:text-slate-400'>MED9987</span></h2>
         
       </div>
       <div className="mt-6 border-t border-gray-100">
-        <dl className="divide-y divide-gray-100">
+        <dl className="divide-y divide-gray-100 dark:divide-slate-800">
         
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-base font-medium leading-6 text-gray-900">Full name</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Elaine Frost</dd>
+          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0 text-center">
+            <dt className="text-lg font-medium leading-6 text-gray-900 dark:text-white">Full name</dt>
+            <dd className="mt-1 text-md leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-slate-200">Elaine Frost</dd>
           </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-base font-medium leading-6 text-gray-900">Date Of Birth</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">01/01/1975</dd>
+          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0 text-center">
+          <dt className="text-lg font-medium leading-6 text-gray-900 dark:text-white">Date Of Birth</dt>
+          <dd className="mt-1 text-md leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-slate-200">01/01/1975</dd>
           </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-base font-medium leading-6 text-gray-900">Address</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">123St, New York</dd>
+          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0 text-center">
+          <dt className="text-lg font-medium leading-6 text-gray-900 dark:text-white">Address</dt>
+          <dd className="mt-1 text-md leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-slate-200">123St, New York</dd>
           </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-base font-medium leading-6 text-gray-900">Contact</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">90123456789</dd>
+          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0 text-center">
+          <dt className="text-lg font-medium leading-6 text-gray-900 dark:text-white">Contact</dt>
+          <dd className="mt-1 text-md leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-slate-200">90123456789</dd>
           </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-base font-medium leading-6 text-gray-900">Height</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">175</dd>
-          </div><div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-base font-medium leading-6 text-gray-900">Weight</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">75</dd>
+          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0 text-center">
+          <dt className="text-lg font-medium leading-6 text-gray-900 dark:text-white">Height</dt>
+          <dd className="mt-1 text-md leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-slate-200">175 cm</dd>
+          </div><div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0 text-center">
+          <dt className="text-lg font-medium leading-6 text-gray-900 dark:text-white">Weight</dt>
+          <dd className="mt-1 text-md leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-slate-200">75 kg</dd>
           </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-base font-medium leading-6 text-gray-900">Age</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">48</dd>
+          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0 text-center">
+          <dt className="text-lg font-medium leading-6 text-gray-900 dark:text-white">Age</dt>
+          <dd className="mt-1 text-md leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-slate-200">49 yrs</dd>
           </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-base font-medium leading-6 text-gray-900">blood group</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">B+ve</dd>
+          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0 text-center">
+          <dt className="text-lg font-medium leading-6 text-gray-900 dark:text-white">Blood group</dt>
+          <dd className="mt-1 text-md leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-slate-200">B+ve</dd>
           </div>
           
           
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-large font-medium leading-6 text-gray-900">Medical Information</dt>
+          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0 text-center">
+            <dt className="text-large font-medium leading-6 text-gray-900 dark:text-white">Medical Information</dt>
             <dd className="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
             {medicalConditions && (
             <ul>
@@ -133,11 +134,10 @@ function Home() {
                 
               </ul>
             </dd>
-            
           </div>
           
-        </dl>
           
+        </dl>
       </div>
     </div>
       

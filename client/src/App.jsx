@@ -23,16 +23,11 @@ function App() {
     <>
       <Router>
         <Navbar />
-        {/* UNAUTHORIZED ROUTES */}
         <Routes>
-
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-        
-
+          {/* UNAUTHORIZED ROUTES */}
           <Route element={<UnauthorizedRoutes />}>
-            <Route path="/register" element={<Register />}></Route>
-            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}/>
+            <Route path="/login" element={<Login />}/>
           </Route>
 
           {/* AUTHORIZED ROUTES */}
@@ -41,7 +36,7 @@ function App() {
             <Route path="/family-details" element={<FamilyDetails />} />
             <Route path="/hospital-history" element={<HospitalHistory />} />
             <Route path="/visual-chart/:id" element={<VisualChart appoloData={appoloData} kauveryData={kauveryData} mgmData={mgmData}/>} />
-            <Route path ="/MedicalInfo" element={<MedicalInfo />}>
+            <Route path ="/MedicalInfo" element={<MedicalInfo />}/>
           </Route>
         </Routes>
         <ThemeButton />
