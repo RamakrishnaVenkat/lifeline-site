@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
+import MedicalReports from "./pages/MedicalReports";
 
 import PrivateRoutes from "./components/PrivateRoutes";
 import UnauthorizedRoutes from "./components/UnauthorizedRoutes";
@@ -37,6 +38,7 @@ function App() {
             <Route path="/hospital-history" element={<HospitalHistory />} />
             <Route path="/visual-chart/:id" element={<VisualChart appoloData={appoloData} kauveryData={kauveryData} mgmData={mgmData}/>} />
             <Route path ="/MedicalInfo" element={<MedicalInfo />}/>
+            <Route path="/medical-reports" element={<MedicalReports />} />
           </Route>
         </Routes>
         <ThemeButton />
