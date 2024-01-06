@@ -33,7 +33,7 @@ export const signup = async (req, res, next) => {
     // Generate unique medical ID
     const medicalID = await generateUniqueMedicalID();
 
-    const newUser = new User({ name, username, dob, password: hashedPass, address, contact, age, height, weight, gender, blood_group, medical_id: medicalID});
+    const newUser = new User({ name, username, dob, password: hashedPass, address, contact, age, height, weight, gender, bloodGroup: blood_group, medical_id: medicalID});
     await newUser.save();
     res.status(201).json("User created successfully");
     // res.json(newUser);

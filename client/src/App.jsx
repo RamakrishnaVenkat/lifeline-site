@@ -17,6 +17,7 @@ import FamilyDetails from "./pages/FamilyDetails";
 import HospitalHistory from "./pages/HospitalHistory";
 import { VisualChart } from "./pages/VisualChart";
 import { appoloData, kauveryData, mgmData } from "./assets/visualData";
+import { Blog } from "./pages/Blog";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path="/hospital-history" element={<HospitalHistory />} />
             <Route path="/visual-chart/:id" element={<VisualChart appoloData={appoloData} kauveryData={kauveryData} mgmData={mgmData}/>} />
             <Route path ="/MedicalInfo" element={<MedicalInfo />}/>
+            <Route path ="/blogs" element={<Blog />}/>
           </Route>
         </Routes>
         <ThemeButton />

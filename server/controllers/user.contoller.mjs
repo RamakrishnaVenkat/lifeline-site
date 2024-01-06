@@ -3,6 +3,19 @@ import MedicalDetails from "../models/MedicalDetails.model.mjs";
 import { errorHandler } from "../utils/error.mjs";
 
 
+export const getUserDetails = async(req, res, next) =>{
+  try {
+    const userId = req.user._id;
+    if(!userId) next(errorHandler(400, "User id not found, You are unauthorized!"))
+
+    const user = await User.findById(userId).select("-password")
+    if(!user) next(errorHandler(400, "User not found!"))
+
+    return res.status(200).json(user)
+  } catch (error) {
+    next(error.message)
+  }
+}
 //FUNCTION TO ADD MEDCIAL DETAILS
 export const addMedicalDetails = async(req, res, next)=>{
   try {
@@ -87,7 +100,7 @@ export const getMedicalDetails = async(req, res, next)=>{
 
     const medicalId = user.medical_id
     
-    const userMedicalDetails = await MedicalDetails.findOne({medical_id: medicalId});
+    const userMedicalDetails = await MedicalDetails.findOne({medical_id: medicalId}).select("-_id -user_id -medical_id");
     if (!userMedicalDetails) {
       return next(errorHandler(404, 'Medical details not found'));
     }

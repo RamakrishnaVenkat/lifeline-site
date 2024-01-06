@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function MedicalInfo() {
@@ -26,18 +26,49 @@ function MedicalInfo() {
       [category]: [...medicalConditions[category], {}],
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log('Submitted Data:', medicalConditions);
-    navigate('/', {state:{medicalConditions}});
-    
-  };
+    try {
+      const res = await fetch('/api/user/add-medical-details', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json' // Set the content type to JSON
+        },
+        body: JSON.stringify({
+          medicalConditions // Include the medicalConditions in the request body
+        })
+      });
   
+      if (!res.ok) {
+        throw new Error('Failed to send data to the server');
+      }
+  
+      const response = await res.json();
+      console.log('Server response:', response);
+    } catch (error) {
+      console.error('Error sending data to the server:', error);
+    }
+    navigate('/', {state:{medicalConditions}});
+  };
 
+  useEffect(() => {
+    const getMedicalDetails = async()=>{
+      const res = await fetch('/api/user/get-medical-details',{
+        method: 'GET'
+      });
+
+      const data = await res.json();
+      setMedicalConditions(data)
+    }
+
+    getMedicalDetails();
+  }, [])
+  
+  console.log(medicalConditions)
   return (
-    <div className='custom-padding medical-info-container'>
+    <div className=''>
       
-      <form onSubmit={handleSubmit} className="min-h-screen bg-white shadow-md px-8 pt-6 pb-8 mb-4 dark:bg-slate-900" >
+      <form onSubmit={handleSubmit} className="custom-padding min-h-screen bg-white shadow-md px-8 pt-6 pb-8  dark:bg-slate-900" >
         <div>
           <p className=" pt-5 pb-5 block text-gray-700 text-sm font-bold mb-2 dark:text-white">
             If you have/had any medical conditions for a prolonged time and took up treatment, please mention below:
